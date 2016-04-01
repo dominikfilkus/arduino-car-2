@@ -1,0 +1,31 @@
+@import '_layout';
+@import '_variables';
+
+.main-container {
+    background-color: #edeefb;
+    padding: 30px;
+}
+
+.control-container {
+    @include container;
+
+    &__title {
+        text-align: center;
+    }
+
+    &__content {
+        background-color: $color-white;
+        padding: 10px;
+        box-sizing: border-box;
+
+        &__title {
+            text-align: center;
+        }
+    }
+}
+
+.camera {
+    &__content {
+        text-align: center;
+    }
+}

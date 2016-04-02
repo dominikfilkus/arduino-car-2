@@ -5,12 +5,10 @@ module.exports = {
 var five = require('johnny-five'),
     global = require('./global.js');
 
-var frontServo,
-    rightServo,
+var rightServo,
     leftServo;
 
 function initServo() {
-    frontServo = new five.Servo.Continuous(9);
     rightServo = new five.Servo.Continuous(10);
     leftServo = new five.Servo.Continuous(11);
 
@@ -34,16 +32,14 @@ function initSocketListeners() {
             leftServo.stop();
         });
 
-        socket.on('servo_front_stop', function() {
-            frontServo.stop();
-        });
-
         socket.on('servo_right', function() {
-            frontServo.ccw();
+            rightServo.ccw();
+            leftServo.ccw();
         });
 
         socket.on('servo_left', function() {
-            frontServo.cw();
+            rightServo.cw();
+            leftServo.cw();
         });
     });
 }

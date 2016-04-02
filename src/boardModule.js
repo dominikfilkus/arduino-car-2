@@ -9,7 +9,7 @@ function initBoard() {
     var deferred = Q.defer();
 
     board = new five.Board({
-        port: "COM18"
+        port: "COM19"
     });
 
     board.on('ready', function() {

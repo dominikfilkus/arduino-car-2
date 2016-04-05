@@ -6,70 +6,64 @@
     document.onkeyup = checkKeyUp;
 
     function checkKeyDown(e) {
-        if (e.keyCode == '38') {
-            forwardState = true;
-            socket.emit('servo_forward');
-        }
-        else if (e.keyCode == '40') {
-            backwardState = true;
-            socket.emit('servo_backward');
-        }
-        else if (e.keyCode == '37') {
-            leftState = true;
-            socket.emit('servo_left');
-        }
-        else if (e.keyCode == '39') {
-            rightState = true;
-            socket.emit('servo_right');
+        switch (e.keyCode) {
+            case 38:
+                forwardState = true;
+                socket.emit('servo_forward');
+                break;
+            case 40:
+                backwardState = true;
+                socket.emit('servo_backward');
+                break;
+            case 37:
+                leftState = true;
+                socket.emit('servo_left');
+                break;
+            case 39:
+                rightState = true;
+                socket.emit('servo_right');
+                break;
         }
     }
 
     function checkKeyUp(e) {
-        if (e.keyCode == '38') {
-            forwardState= false;
-
-            if (leftState) {
-                socket.emit('servo_left');
-            } else if (rightState) {
-                socket.emit('servo_right');
-            } else {
-                socket.emit('servo_stop');
-            }
+        switch (e.keyCode) {
+            case 38:
+                forwardState= false;
+                smoothTurn();
+                break;
+            case 40:
+                backwardState = false;
+                smoothTurn();
+                break;
+            case 37:
+                leftState = false;
+                smoothLineMovement();
+                break;
+            case 39:
+                rightState = false;
+                smoothLineMovement();
+                break;
         }
+    }
 
-        else if (e.keyCode == '40') {
-            backwardState = false;
-            if (leftState) {
-                socket.emit('servo_left');
-            } else if (rightState) {
-                socket.emit('servo_right');
-            } else {
-                socket.emit('servo_stop');
-            }
+    function smoothTurn() {
+        if (leftState) {
+            socket.emit('servo_left');
+        } else if (rightState) {
+            socket.emit('servo_right');
+        } else {
+            socket.emit('servo_stop');
         }
+    }
 
-        else if (e.keyCode == '37') {
-            leftState = false;
-
-            if (forwardState) {
-                socket.emit('servo_forward');
-            } else if (backwardState) {
-                socket.emit('servo_backward');
-            } else {
-                socket.emit('servo_stop');
-            }
-        }
-
-        else if (e.keyCode == '39') {
-            rightState = false;
-
-            if (forwardState) {
-                socket.emit('servo_forward');
-            } else if (backwardState) {
-                socket.emit('servo_backward');
-            } else {
-                socket.emit('servo_stop');
-            }
+    function smoothLineMovement() {
+        if (forwardState) {
+            socket.emit('servo_forward');
+        } else if (backwardState) {
+            socket.emit('servo_backward');
+        } else {
+            socket.emit('servo_stop');
         }
     }
 }());

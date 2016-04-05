@@ -27,11 +27,6 @@ function initSocketListeners() {
             leftServo.cw();
         });
 
-        socket.on('servo_stop', function() {
-            rightServo.stop();
-            leftServo.stop();
-        });
-
         socket.on('servo_right', function() {
             rightServo.ccw();
             leftServo.ccw();
@@ -40,6 +35,11 @@ function initSocketListeners() {
         socket.on('servo_left', function() {
             rightServo.cw();
             leftServo.cw();
+        });
+
+        socket.on('servo_stop', function() {
+            rightServo.stop();
+            leftServo.stop();
         });
     });
 }

@@ -2,6 +2,9 @@ var servoControl = (function() {
     var forwardState, backwardState, rightState, leftState,
         socket = io.connect('http://localhost');
 
+    var leftServo = document.querySelector('.servo__item--left__value'),
+        rightServo = document.querySelector('.servo__item--right__value');
+
     /**
      * @name servoControl#moveServos
      * @public
@@ -87,6 +90,39 @@ var servoControl = (function() {
             socket.emit('servo_stop');
         }
     };
+
+    /**
+     * @name bindEvents
+     * @private
+     * @description Bind all servo events
+     */
+    var bindEvents = function() {
+        socket.on('left_servo_cw', function () {
+            leftServo.innerHTML = 'CW';
+        });
+
+        socket.on('left_servo_ccw', function () {
+            leftServo.innerHTML = 'CCW';
+        });
+
+        socket.on('left_servo_stop', function () {
+            leftServo.innerHTML = 'IDLE';
+        });
+
+        socket.on('right_servo_cw', function () {
+            rightServo.innerHTML = 'CW';
+        });
+
+        socket.on('right_servo_ccw', function () {
+            rightServo.innerHTML = 'CCW';
+        });
+
+        socket.on('right_servo_stop', function () {
+            rightServo.innerHTML = 'IDLE';
+        });
+    };
+
+    bindEvents();
 
     return {
         moveServos: moveServos,

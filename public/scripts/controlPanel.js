@@ -4,6 +4,7 @@
 
     function checkKeyDown(e) {
         servoControl.moveServos(e.keyCode);
+        ledControl.switchLEDs(e.keyCode);
     }
 
     function checkKeyUp(e) {

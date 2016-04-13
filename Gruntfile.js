@@ -10,13 +10,10 @@ module.exports = function(grunt) {
                     noCache: true,
                     require: 'susy'
                 },
-                files: [{
-                    expand: true,
-                    cwd: '<%= publicPath %>/styles/scss',
-                    src: ['*.scss'],
-                    dest: '<%= publicPath %>/styles',
-                    ext: '.css'
-                }]
+                files: {
+                    '<%= publicPath %>/styles/styles.css' : '<%= publicPath %>/styles/scss/styles.scss'
+
+                }
             }
         }
     });

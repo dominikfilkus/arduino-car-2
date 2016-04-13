@@ -20,26 +20,36 @@ function initSocketListeners() {
         socket.on('servo_forward', function () {
             rightServo.cw();
             leftServo.ccw();
+            socket.emit('right_servo_cw');
+            socket.emit('left_servo_ccw');
         });
 
         socket.on('servo_backward', function () {
             rightServo.ccw();
             leftServo.cw();
+            socket.emit('right_servo_ccw');
+            socket.emit('left_servo_cw');
         });
 
         socket.on('servo_right', function() {
             rightServo.ccw();
             leftServo.ccw();
+            socket.emit('right_servo_ccw');
+            socket.emit('left_servo_ccw');
         });
 
         socket.on('servo_left', function() {
             rightServo.cw();
             leftServo.cw();
+            socket.emit('right_servo_cw');
+            socket.emit('left_servo_cw');
         });
 
         socket.on('servo_stop', function() {
             rightServo.stop();
             leftServo.stop();
+            socket.emit('right_servo_stop');
+            socket.emit('left_servo_stop');
         });
     });
 }

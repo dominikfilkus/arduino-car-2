@@ -1,5 +1,3 @@
-@import '_variables';
-
 @mixin media-1179px {
     @media only screen and (max-width: $breakpoint-1179px) {
         @content;

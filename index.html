@@ -11,24 +11,39 @@
         <body>
         <header></header>
         <div class="main-container mdl-color-text--grey-600">
-            <div class="control-container">
+            <section class="servo control-container">
                 <h4 class="control-container__title">Servo</h4>
-                <section class="control-container__content servo mdl-shadow--2dp">
+                <div class="control-container__content mdl-shadow--2dp">
                     <h5 class="control-container__content__title">Use the arrow keys in the keyboard for navigating the bot</h5>
-                </section>
-            </div>
-            <div class="control-container">
+                    <div class="servo__item servo__item--left">
+                        <span>LEFT SERVO:</span>
+                        <span class="servo__item--left__value"></span>
+                    </div>
+                    <div class="servo__item servo__item--right">
+                        <span>RIGHT SERVO:</span>
+                        <span class="servo__item--right__value"></span>
+                    </div>
+                </div>
+            </section>
+            <section class="led control-container">
+                <h4 class="control-container__title">Servo</h4>
+                <div class="control-container__content mdl-shadow--2dp">
+                    <h5 class="control-container__content__title">Use SPACE bar for turning the LEDs on and off </h5>
+                </div>
+            </section>
+            <section class="camera control-container">
                 <h4 class="control-container__title">Camera</h4>
-                <section class="camera mdl-shadow--2dp">
+                <div class="mdl-shadow--2dp">
                     <div class="control-container__content camera__content">
                         <iframe src="http://192.168.1.240:8080/mjpeg" height="480" width="640"></iframe>
                     </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </div>
         <footer></footer>
         <script src="/bower_components/material-design-lite/material.min.js"></script>
         <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="ledControl.js"></script>
         <script type="text/javascript" src="servoControl.js"></script>
         <script type="text/javascript" src="controlPanel.js"></script>
     </body>

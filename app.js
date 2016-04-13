@@ -7,7 +7,8 @@ var express = require('express'),
 global.io = require('socket.io')(server);
 
 var boardModule = require('./src/boardModule.js'),
-    servoModule = require('./src/servoModule');
+    servoModule = require('./src/servoModule'),
+    ledModule = require('./src/ledModule');
 
 server.listen(80);
 
@@ -21,5 +22,6 @@ app.get('/', function(req, res) {
 
 boardModule.initBoard().then(function() {
     servoModule.initServo();
+    ledModule.initLed();
 });
 

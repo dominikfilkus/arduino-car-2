@@ -1,3 +1,5 @@
+'use strict';
+
 var express = require('express'),
     app = express(),
     path = require('path'),
@@ -14,6 +16,7 @@ server.listen(80);
 
 app.use(express.static('public/scripts'));
 app.use(express.static('public/styles'));
+app.use(express.static('dist/js'));
 app.use('/bower_components',  express.static(__dirname + '/bower_components'));
 
 app.get('/', function(req, res) {

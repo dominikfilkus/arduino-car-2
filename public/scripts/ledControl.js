@@ -1,6 +1,8 @@
 let turnedOn,
     socket = io.connect('http://localhost');
 
+let ledValue = document.getElementsByClassName('led__item__value')[0];
+
 /**
  * @name switchLEDs
  * @public
@@ -18,6 +20,18 @@ let switchLEDs = (keyCode) => {
         }
     }
 };
+
+let bindEvents = () => {
+    socket.on('leds_on', () => {
+        ledValue.innerHTML = 'On';
+    });
+
+    socket.on('leds_of', () => {
+        ledValue.innerHTML = 'Off';
+    });
+};
+
+bindEvents();
 
 export {
     switchLEDs

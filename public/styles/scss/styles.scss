@@ -4,35 +4,11 @@
 @import '_variables';
 @import '_mixins';
 @import '_layout';
+@import '_commons';
 
 // Components
+@import 'header';
 @import 'servo';
+@import 'led';
+@import 'camera';
 
-.main-container {
-    background-color: $color-white-1;
-    padding: 30px;
-}
-
-.control-container {
-    @include container;
-
-    &__title {
-        text-align: center;
-    }
-
-    &__content {
-        background-color: $color-white;
-        padding: 10px 50px;
-        box-sizing: border-box;
-
-        &__title {
-            text-align: center;
-        }
-    }
-}
-
-.camera {
-    &__content {
-        text-align: center;
-    }
-}

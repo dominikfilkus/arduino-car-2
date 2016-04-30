@@ -19,11 +19,13 @@ function initSocketListeners() {
         socket.on('leds_on', function () {
             leftLed.on();
             rightLed.on();
+            socket.emit('leds_on');
         });
 
         socket.on('leds_off', function () {
             leftLed.off();
             rightLed.off();
+            socket.emit('leds_off');
         });
     });
 }

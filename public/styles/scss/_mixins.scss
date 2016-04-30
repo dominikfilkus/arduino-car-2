@@ -10,6 +10,12 @@
     }
 }
 
+@mixin media-999px {
+    @media only screen and (max-width: $breakpoint-999px) {
+        @content;
+    }
+}
+
 @mixin media-699px {
     @media only screen and (max-width: $breakpoint-699px) {
         @content;

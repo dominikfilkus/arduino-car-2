@@ -21,12 +21,17 @@ let switchLEDs = (keyCode) => {
     }
 };
 
+/**
+ * @name bindEvents
+ * @private
+ * @description Bind all led events
+ */
 let bindEvents = () => {
     socket.on('leds_on', () => {
         ledValue.innerHTML = 'On';
     });
 
-    socket.on('leds_of', () => {
+    socket.on('leds_off', () => {
         ledValue.innerHTML = 'Off';
     });
 };

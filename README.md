@@ -7,6 +7,9 @@ This experimental project focuses to build robots with Javascript using Johnny-F
 ### The control panel
 ![alt tag](https://raw.githubusercontent.com/dominikfilkus/arduino-spybot/master/spybot_panel.png)
 
+### Related video
+https://www.youtube.com/watch?v=Q8_8jsUNdV4
+
 ### Hardware components
  - Arduino UNO
  - Arduino Prototype Shield

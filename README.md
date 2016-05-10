@@ -21,6 +21,7 @@ This experimental project focuses to build robots with Javascript using Johnny-F
  - Digital voltmeter
  - 2x 5mm LEDs
  - Cell phone mount
+ - Cell phone using as an IP camera with proper app
  
 ### Sortware libraries
  - express.js (http://expressjs.com/) - for enhance our nodejs application

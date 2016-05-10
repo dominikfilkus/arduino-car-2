@@ -26,7 +26,7 @@ https://www.youtube.com/watch?v=Q8_8jsUNdV4
  - Cell phone mount
  - Cell phone using as an IP camera with proper app
  
-### Sortware libraries
+### Software libraries
  - express.js (http://expressjs.com/) - for enhance our nodejs application
  - johnny-five (http://johnny-five.io/) - for using arduino javascript controlling API
  - socket.io (http://socket.io/) - for using web sockets to establish communication between back-end and front-end
